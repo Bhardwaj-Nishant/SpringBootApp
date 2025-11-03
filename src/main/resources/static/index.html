@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="app-title">Weatherly</h1>
+            <div class="location-controls">
+                <button id="location-btn" class="location-btn">
+                    <i class="fas fa-location-arrow"></i>
+                    My Location
+                </button>
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" id="city-input" placeholder="Enter city name...">
+                        <button id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+
+        <!-- Boilerplate UI when no location is selected -->
+        <div class="boilerplate-ui" id="boilerplate-ui">
+            <div class="boilerplate-content">
+                <div class="boilerplate-icon">
+                    <i class="fas fa-cloud-sun"></i>
+                </div>
+                <h2>Welcome to Weatherly</h2>
+                <p>Get real-time weather information for any location</p>
+                <div class="boilerplate-features">
+                    <div class="feature">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Current location weather</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-search"></i>
+                        <span>Search any city worldwide</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-chart-line"></i>
+                        <span>7-day forecast</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-clock"></i>
+                        <span>24-hour temperature trends</span>
+                    </div>
+                </div>
+                <div class="boilerplate-actions">
+                    <button id="boilerplate-location-btn" class="action-btn primary">
+                        <i class="fas fa-location-arrow"></i>
+                        Use My Current Location
+                    </button>
+                    <p class="or-divider">or</p>
+                    <div class="search-suggestions">
+                        <p>Try searching for:</p>
+                        <div class="suggestion-tags">
+                            <span class="suggestion-tag" data-city="New Delhi">New Delhi</span>
+                            <span class="suggestion-tag" data-city="Mumbai">Mumbai</span>
+                            <span class="suggestion-tag" data-city="Bangalore">Bangalore</span>
+                            <span class="suggestion-tag" data-city="Kolkata">Kolkata</span>
+                            <span class="suggestion-tag" data-city="Chennai">Chennai</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actual Weather Data UI -->
+        <div class="weather-data" id="weather-data">
+            <div class="current-weather" id="current-weather">
+                <div class="location-info">
+                    <h1 id="city-name">Delhi, India</h1>
+                    <p id="current-date">Haze · Sunday, Nov 2, 6:29 PM</p>
+                </div>
+
+                <div class="temperature-section">
+                    <div class="current-temp">
+                        <span id="current-temp">25°</span>
+                        <span class="temp-unit">C</span>
+                    </div>
+                    <div class="temp-range">
+                        <span>High <span id="high-temp">31°</span></span>
+                        <span>Low <span id="low-temp">25°</span></span>
+                    </div>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Humidity</span>
+                        <span class="detail-value" id="humidity">50%</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Wind</span>
+                        <span class="detail-value" id="wind-speed">7.42 KpH</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Feels Like</span>
+                        <span class="detail-value" id="feels-like">25°</span>
+                    </div>
+                </div>
+
+                <div class="weather-condition">
+                    <img id="weather-icon" src="https://cdn.weatherapi.com/weather/64x64/day/113.png" alt="Weather condition">
+                    <span id="condition-text">Clear</span>
+                </div>
+            </div>
+
+            <div class="hourly-forecast" id="hourly-forecast-section">
+                <h2>24-Hour Forecast</h2>
+                <div class="hourly-container" id="hourly-forecast">
+                    <!-- Hourly forecast items will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <div class="daily-forecast" id="daily-forecast-section">
+                <h2>7-Day Forecast</h2>
+                <div class="daily-container" id="daily-forecast">
+                    <!-- Daily forecast items will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="error-message" id="error-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p id="error-text">Unable to fetch weather data. Please try again.</p>
+            <button id="retry-btn" class="retry-btn">Retry</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
