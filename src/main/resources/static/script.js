@@ -24,8 +24,8 @@ const boilerplateUI = document.getElementById('boilerplate-ui');
 const suggestionTags = document.querySelectorAll('.suggestion-tag');
 
 // API endpoints
-const CURRENT_WEATHER_API = 'http://localhost:8080/weather/';
-const FORECAST_WEATHER_API = 'http://localhost:8080/weather/';
+const CURRENT_WEATHER_API = '/weather/';
+const FORECAST_WEATHER_API = '/weather/';
 
 // State
 let currentCity = '';
