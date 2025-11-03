@@ -1,5 +1,5 @@
-# Use OpenJDK as base image
-FROM eclipse-temurin:17-jdk
+# Use Java 21
+FROM eclipse-temurin:21-jdk
 
 # Set working directory
 WORKDIR /app
@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy project files
 COPY . .
 
-# Give execute permission to mvnw
+# Make mvnw executable
 RUN chmod +x mvnw
 
 # Build the application
